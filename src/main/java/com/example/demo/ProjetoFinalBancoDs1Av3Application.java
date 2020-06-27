@@ -8,6 +8,7 @@ public class ProjetoFinalBancoDs1Av3Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProjetoFinalBancoDs1Av3Application.class, args);
+		
 	}
 
 }
