@@ -2,8 +2,8 @@ package com.example.demo.domain;
 
 public class Conta {
 	
-	private int id;
-	private int numero;
+	private Integer id;
+	private Integer numero;
 	private double saldo;
 	private boolean estado;
 	
@@ -11,26 +11,26 @@ public class Conta {
 		
 	}
 
-	public Conta(int id, int numero, double saldo, boolean estado) {
+	public Conta(Integer id, Integer numero, double saldo, boolean estado) {
 		this.id = id;
 		this.numero = numero;
 		this.saldo = saldo;
 		this.estado = estado;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getNumero() {
+	public Integer getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
 
@@ -71,9 +71,5 @@ public class Conta {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
 
 }

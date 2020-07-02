@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Fatura {
 	
-	private int id;
+	private Integer id;
 	private Date dataVencimento;
 	private Date dataPagamento;
 	private double juros;
@@ -15,7 +15,7 @@ public class Fatura {
 	
 	}
 
-	public Fatura(int id, Date dataVencimento, Date dataPagamento, double juros, boolean estado, double total) {
+	public Fatura(Integer id, Date dataVencimento, Date dataPagamento, double juros, boolean estado, double total) {
 		this.id = id;
 		this.dataVencimento = dataVencimento;
 		this.dataPagamento = dataPagamento;
@@ -24,11 +24,11 @@ public class Fatura {
 		this.total = total;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

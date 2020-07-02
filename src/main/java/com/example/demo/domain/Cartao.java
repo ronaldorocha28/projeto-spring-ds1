@@ -4,18 +4,19 @@ import java.util.Date;
 
 public class Cartao {
 	
-	private int id;
-	private int numero;
+	private Integer id;
+	private Integer numero;
 	private Date vencimento;
 	private String nomeCliente;
-	private int cod;
-	private String senha;
 	
 	public Cartao() {
 		
 	}
 
-	public Cartao(int id, int numero, Date vencimento, String nomeCliente, int cod, String senha) {
+	private Integer cod;
+	private String senha;
+	
+	public Cartao(Integer id, Integer numero, Date vencimento, String nomeCliente, Integer cod, String senha) {
 		this.id = id;
 		this.numero = numero;
 		this.vencimento = vencimento;
@@ -24,19 +25,19 @@ public class Cartao {
 		this.senha = senha;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getNumero() {
+	public Integer getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
 
@@ -56,11 +57,11 @@ public class Cartao {
 		this.nomeCliente = nomeCliente;
 	}
 
-	public int getCod() {
+	public Integer getCod() {
 		return cod;
 	}
 
-	public void setCod(int cod) {
+	public void setCod(Integer cod) {
 		this.cod = cod;
 	}
 

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Cliente {
 	
-	private int id;
+	private Integer id;
 	private String nome;
 	private List<String> telefones = new ArrayList<>();
 	private String email;
@@ -15,18 +15,18 @@ public class Cliente {
 		
 	}
 
-	public Cliente(int id, String nome, String telefone, String email, Endereco endereco) {
+	public Cliente(Integer id, String nome, String telefone, String email, Endereco endereco) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.endereco = endereco;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

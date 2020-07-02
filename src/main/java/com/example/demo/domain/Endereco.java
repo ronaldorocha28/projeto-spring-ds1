@@ -2,7 +2,7 @@ package com.example.demo.domain;
 
 public class Endereco {
 	
-	private int id;
+	private Integer id;
 	private String logradouro;
 	private String numero;
 	private String bairro;
@@ -13,7 +13,7 @@ public class Endereco {
 		
 	}
 
-	public Endereco(int id, String logradouro, String numero, String bairro, String cidade, String estado) {
+	public Endereco(Integer id, String logradouro, String numero, String bairro, String cidade, String estado) {
 		this.id = id;
 		this.logradouro = logradouro;
 		this.numero = numero;
@@ -22,11 +22,11 @@ public class Endereco {
 		this.estado = estado;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
