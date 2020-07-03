@@ -7,15 +7,15 @@ public class Fatura {
 	private Integer id;
 	private Date dataVencimento;
 	private Date dataPagamento;
-	private double juros;
+	private Double juros;
 	private boolean estado;
-	private double total;
+	private Double total;
 	
 	public Fatura() {
 	
 	}
 
-	public Fatura(Integer id, Date dataVencimento, Date dataPagamento, double juros, boolean estado, double total) {
+	public Fatura(Integer id, Date dataVencimento, Date dataPagamento, Double juros, boolean estado, Double total) {
 		this.id = id;
 		this.dataVencimento = dataVencimento;
 		this.dataPagamento = dataPagamento;
@@ -48,11 +48,11 @@ public class Fatura {
 		this.dataPagamento = dataPagamento;
 	}
 
-	public double getJuros() {
+	public Double getJuros() {
 		return juros;
 	}
 
-	public void setJuros(double juros) {
+	public void setJuros(Double juros) {
 		this.juros = juros;
 	}
 
@@ -64,11 +64,11 @@ public class Fatura {
 		this.estado = estado;
 	}
 
-	public double getTotal() {
+	public Double getTotal() {
 		return total;
 	}
 
-	public void setTotal(double total) {
+	public void setTotal(Double total) {
 		this.total = total;
 	}
 

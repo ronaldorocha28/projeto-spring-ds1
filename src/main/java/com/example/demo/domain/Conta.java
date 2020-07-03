@@ -1,17 +1,31 @@
 package com.example.demo.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Conta {
 	
+	@Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private Integer numero;
-	private double saldo;
+	private Double saldo;
 	private boolean estado;
+	
+	@ManyToOne
+	@JoinColumn(name = "categoria_id")
+	private Categoria categoria;
 	
 	public Conta() {
 		
 	}
 
-	public Conta(Integer id, Integer numero, double saldo, boolean estado) {
+	public Conta(Integer id, Integer numero, Double saldo, boolean estado) {
 		this.id = id;
 		this.numero = numero;
 		this.saldo = saldo;
@@ -34,11 +48,11 @@ public class Conta {
 		this.numero = numero;
 	}
 
-	public double getSaldo() {
+	public Double getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(double saldo) {
+	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
 	}
 
@@ -48,6 +62,14 @@ public class Conta {
 
 	public void setEstado(boolean estado) {
 		this.estado = estado;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 	@Override
