@@ -36,13 +36,14 @@ public class Cartao {
 	private Integer cod;
 	private String senha;
 	
-	public Cartao(Integer id, Integer numero, Date vencimento, String nomeCliente, Integer cod, String senha) {
+	public Cartao(Integer id, Integer numero, Date vencimento, String nomeCliente, Integer cod, String senha, Conta conta) {
 		this.id = id;
 		this.numero = numero;
 		this.vencimento = vencimento;
 		this.nomeCliente = nomeCliente;
 		this.cod = cod;
 		this.senha = senha;
+		this.conta = conta;
 	}
 
 	public Integer getId() {
