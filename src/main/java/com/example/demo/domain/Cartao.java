@@ -1,6 +1,8 @@
 package com.example.demo.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cartao {
@@ -18,6 +21,9 @@ public class Cartao {
 	private Integer numero;
 	private Date vencimento;
 	private String nomeCliente;
+	
+	@OneToMany(mappedBy = "cartao")
+	private List<Fatura> faturas = new ArrayList<>();
 	
 	@ManyToOne
 	@JoinColumn(name = "conta_id")
@@ -85,6 +91,22 @@ public class Cartao {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	public Conta getConta() {
+		return conta;
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
+	}
+	
+	public List<Fatura> getFaturas() {
+		return faturas;
+	}
+
+	public void setFaturas(List<Fatura> faturas) {
+		this.faturas = faturas;
 	}
 
 	@Override

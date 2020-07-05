@@ -1,15 +1,33 @@
 package com.example.demo.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Fatura {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Fatura implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private Date dataVencimento;
 	private Date dataPagamento;
 	private Double juros;
 	private boolean estado;
 	private Double total;
+	
+	@ManyToOne
+	@JoinColumn(name = "cartao_id")
+	private Cartao cartao;
+	
 	
 	public Fatura() {
 	
