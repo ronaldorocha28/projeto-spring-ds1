@@ -16,8 +16,8 @@ public class ContaService {
 	private ContaRepository repository;
 	
 	public Conta find(Integer id) {
-		Optional<Conta> Conta = repository.findById(id);
-		return Conta.orElseThrow(() -> new ObjectNotFoundException(
+		Optional<Conta> conta = repository.findById(id);
+		return conta.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Conta.class.getName()));
 	}
 }
