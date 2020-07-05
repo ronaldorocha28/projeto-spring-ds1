@@ -47,17 +47,13 @@ public class ProjetoFinalBancoDs1Av3Application implements CommandLineRunner{
 		Conta c2 = new Conta(null, 13579, 700.00, true);
 		Conta c3 = new Conta(null, 24680, 400.00, true);
 		
-		cat1.getContas().addAll(Arrays.asList(c1,c2));
-		cat2.getContas().addAll(Arrays.asList(c1));
-		cat3.getContas().addAll(Arrays.asList(c3));
-
 		categoriaRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
 		contaRepository.saveAll(Arrays.asList(c1,c2,c3));
 		
-		Cliente cli1 = new Cliente(null, "Shaka de Virgem", "shaka@cdz.com");
-		Cliente cli2 = new Cliente(null, "Toko de Libra", "toko@cdz.com");
-		Cliente cli3 = new Cliente(null, "Aiolos de Sagitário", "aiolos@cdz.com");
-
+		Cliente cli1 = new Cliente(null, "Shaka de Virgem", "shaka@cdz.com", c1);
+		Cliente cli2 = new Cliente(null, "Toko de Libra", "toko@cdz.com", c2);
+		Cliente cli3 = new Cliente(null, "Aiolos de Sagitário", "aiolos@cdz.com", c3);
+		
 		Endereco end1 = new Endereco(null, "Rua da Mangueira", "123", "Bairro da Manga", "Fotaleza", "Ceará", cli1);
 		Endereco end2 = new Endereco(null, "Rua do Cajueiro", "321", "Bairro do Caju", "Salvador", "Bahia", cli2);
 		Endereco end3 = new Endereco(null, "Rua do Coqueiro", "235", "Bairro do Coqueiro", "Rio de Janeiro", "Rio de Janeiro", cli3);
@@ -73,7 +69,10 @@ public class ProjetoFinalBancoDs1Av3Application implements CommandLineRunner{
 
 		clienteRepository.saveAll(Arrays.asList(cli1, cli2, cli3));
 		enderecoRepository.saveAll(Arrays.asList(end1, end2, end3));
-
+		
+		
+		
+		
 	}
 
 }

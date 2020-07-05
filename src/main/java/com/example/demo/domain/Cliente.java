@@ -16,15 +16,21 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cliente implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String email;
+	
+	@OneToOne(mappedBy = "cliente")
+	private Conta conta;
 	
 	@ElementCollection
 	@CollectionTable(name = "TELEFONE")
@@ -37,10 +43,11 @@ public class Cliente implements Serializable{
 		
 	}
 
-	public Cliente(Integer id, String nome, String email) {
+	public Cliente(Integer id, String nome, String email, Conta conta) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
+		this.conta = conta;
 	}
 
 	public Integer getId() {
@@ -74,8 +81,6 @@ public class Cliente implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	
 	
 	public List<Endereco> getEnderecos() {
 		return enderecos;
@@ -83,6 +88,14 @@ public class Cliente implements Serializable{
 
 	public void setEnderecos(List<Endereco> enderecos) {
 		this.enderecos = enderecos;
+	}
+
+	public Conta getConta() {
+		return conta;
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
 	}
 
 	@Override
