@@ -1,12 +1,17 @@
 package com.example.demo.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Endereco {
+public class Endereco implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -19,17 +24,23 @@ public class Endereco {
 	private String cidade;
 	private String estado;
 	
+	
+	@ManyToOne
+	@JoinColumn(name = "cliente_id")
+	private Cliente cliente;
+	
 	public Endereco() {
 		
 	}
 
-	public Endereco(Integer id, String logradouro, String numero, String bairro, String cidade, String estado) {
+	public Endereco(Integer id, String logradouro, String numero, String bairro, String cidade, String estado, Cliente cliente) {
 		this.id = id;
 		this.logradouro = logradouro;
 		this.numero = numero;
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.estado = estado;
+		this.cliente = cliente;
 	}
 
 	public Integer getId() {
@@ -80,6 +91,14 @@ public class Endereco {
 		this.estado = estado;
 	}
 
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -102,7 +121,4 @@ public class Endereco {
 		return true;
 	}
 	
-	
-	
-
 }

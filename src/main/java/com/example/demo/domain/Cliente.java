@@ -1,25 +1,46 @@
 package com.example.demo.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import com.example.demo.domain.Endereco;
 
-public class Cliente {
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Cliente implements Serializable{
 	
+	@Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	private List<String> telefones = new ArrayList<>();
 	private String email;
-	private Endereco endereco;
+	
+	@ElementCollection
+	@CollectionTable(name = "TELEFONE")
+	private Set<String> telefones = new HashSet<>();
+	
+	@OneToMany(mappedBy = "cliente")
+	private List<Endereco> enderecos = new ArrayList<>();
 	
 	public Cliente() {
 		
 	}
 
-	public Cliente(Integer id, String nome, String telefone, String email, Endereco endereco) {
+	public Cliente(Integer id, String nome, String email) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
-		this.endereco = endereco;
 	}
 
 	public Integer getId() {
@@ -38,11 +59,11 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public List<String> getTelefones() {
+	public Set<String> getTelefones() {
 		return telefones;
 	}
 
-	public void setTelefones(List<String> telefones) {
+	public void setTelefones(Set<String> telefones) {
 		this.telefones = telefones;
 	}
 
@@ -54,16 +75,14 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public Endereco getEndereco() {
-		return endereco;
+	
+	
+	public List<Endereco> getEnderecos() {
+		return enderecos;
 	}
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-	
-	public void adicionarTelefone(String telefone) {
-		telefones.add(telefone);
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
 	}
 
 	@Override

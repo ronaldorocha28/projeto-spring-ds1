@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.domain.Conta;
 import com.example.demo.repositories.ContaRepository;
+import com.example.demo.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class ContaService {
@@ -15,9 +16,8 @@ public class ContaService {
 	private ContaRepository repository;
 	
 	public Conta find(Integer id) {
-
-		Optional<Conta> conta = repository.findById(id);
-		return conta.orElse(null);
+		Optional<Conta> Conta = repository.findById(id);
+		return Conta.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Conta.class.getName()));
 	}
-
 }
