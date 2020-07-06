@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Conta implements Serializable{
 	
@@ -25,6 +27,7 @@ public class Conta implements Serializable{
 	private Double saldo;
 	private boolean estado;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "conta")
 	private List<Cartao> cartoes = new ArrayList<>();
 	

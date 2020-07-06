@@ -71,7 +71,7 @@ public class ProjetoFinalBancoDs1Av3Application implements CommandLineRunner{
 		Cliente cli2 = new Cliente(null, "Toko de Libra", "toko@cdz.com");
 		Cliente cli3 = new Cliente(null, "Aiolos de Sagitário", "aiolos@cdz.com");
 		
-		Endereco end1 = new Endereco(null, "Rua da Mangueira", "123", "Bairro da Manga", "Fotaleza", "Ceará", cli1);
+		Endereco end1 = new Endereco(null, "Rua da Mangueira", "123", "Bairro da Manga", "Fortaleza", "Ceará", cli1);
 		Endereco end2 = new Endereco(null, "Rua do Cajueiro", "321", "Bairro do Caju", "Salvador", "Bahia", cli2);
 		Endereco end3 = new Endereco(null, "Rua do Coqueiro", "235", "Bairro do Coqueiro", "Rio de Janeiro", "Rio de Janeiro", cli3);
 		

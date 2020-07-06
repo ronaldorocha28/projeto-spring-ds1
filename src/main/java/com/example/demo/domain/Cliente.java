@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import com.example.demo.domain.Endereco;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -29,10 +31,12 @@ public class Cliente implements Serializable{
 	@OneToOne(mappedBy = "cliente")
 	private Conta conta;
 	
+	@JsonIgnore
 	@ElementCollection
 	@CollectionTable(name = "TELEFONE")
 	private Set<String> telefones = new HashSet<>();
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
 	
